@@ -8,7 +8,7 @@ Run `sudo apt install build-essential cmake libgtest-dev` to install in Ubuntu> 
 
 ## Usage
 
-Run `./new.sh <problem name>` to create a new problem directory in `problems`.
+Run `./create_solution.sh <problem name>` to create a new problem directory in `problems`.
 
 Every CPP file in this directory will be a **solution** to the problem and you can have several solutions for one problem.
 
