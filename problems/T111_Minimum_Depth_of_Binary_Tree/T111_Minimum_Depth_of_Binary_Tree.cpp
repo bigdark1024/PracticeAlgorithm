@@ -16,11 +16,10 @@ class Solution {
 
     queue<TreeNode *> que;
     que.push(root);
-    int step = 0;
+    int step = 1;
 
     while (que.size() > 0) {
       int size = que.size();
-      step++;
       for (int i = 0; i < size; ++i) {
         TreeNode *curr = que.front();
         que.pop();
@@ -37,6 +36,7 @@ class Solution {
           return step;
         }
       }
+      step++;
     }
 
     return res;
