@@ -25,9 +25,8 @@ class Solution {
       if (i == 0 && arr.at(i) == 0) {
         continue;
       }
-      res += arr.at(i);
+      res += arr[i];
     }
-
     return res;
   }
 };
