@@ -1,23 +1,25 @@
 cmake_minimum_required(VERSION 3.14.0)
 project(leetcode VERSION 0.1.0)
 
-# enable_testing()
-find_package(Threads REQUIRED)
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIR})
-
-set(PUB_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR})
-
 # 设置指定的C++编译器版本是必须的，如果不设置，或者为OFF，则指定版本不可用时，会使用上一版本。
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 指定为C++11 版本
 set(CMAKE_CXX_STANDARD 11)
 
+set(TOP_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR})
+set(PUB_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR})
+
 # Set the output folder where your program will be created
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+include(cmake/gtest.cmake)
+
+# enable_testing()
+find_package(Threads REQUIRED)
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIR})
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
    add_compile_options(-fprofile-instr-generate -fcoverage-mapping)
