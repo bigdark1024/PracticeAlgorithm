@@ -1,6 +1,7 @@
 project(TTT)
 cmake_minimum_required(VERSION 3.14.0)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../include)
+include_directories(/usr/local/include)
 aux_source_directory(. PROBLEMS)
 
 set(CMAKE_BUILD_TYPE "Debug")
@@ -13,7 +14,7 @@ foreach(PROBLEM ${PROBLEMS})
     add_executable(${PROBLEM_NAME} ${PROBLEM})
     target_link_libraries(
         ${PROBLEM_NAME}
-        gtest
+        ${GTEST_LIBRARIES}
         ${CMAKE_THREAD_LIBS_INIT}
     )
 endforeach()

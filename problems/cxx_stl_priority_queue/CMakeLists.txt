@@ -13,7 +13,7 @@ foreach(PROBLEM ${PROBLEMS})
     add_executable(${PROBLEM_NAME} ${PROBLEM})
     target_link_libraries(
         ${PROBLEM_NAME}
-        gtest
+        ${GTEST_LIBRARIES}
         ${CMAKE_THREAD_LIBS_INIT}
     )
 endforeach()
