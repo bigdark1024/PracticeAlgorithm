@@ -8,12 +8,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 set(CXX_STANDARD 11)
 
-foreach(PROBLEM ${PROBLEMS})
+foreach (PROBLEM ${PROBLEMS})
     get_filename_component(PROBLEM_NAME ${PROBLEM} NAME_WE)
     add_executable(${PROBLEM_NAME} ${PROBLEM})
     target_link_libraries(
-        ${PROBLEM_NAME}
-        ${GTEST_LIBRARIES}
-        ${CMAKE_THREAD_LIBS_INIT}
+            ${PROBLEM_NAME}
+            gtest
+            ${CMAKE_THREAD_LIBS_INIT}
     )
-endforeach()
+endforeach ()
