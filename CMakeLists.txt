@@ -59,3 +59,5 @@ add_subdirectory(include)
 foreach (problem ${problems})
     add_subdirectory(problems/${problem})
 endforeach ()
+
+add_subdirectory(advance_c)
