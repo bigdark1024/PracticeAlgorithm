@@ -1,5 +1,5 @@
 project(jiqiao)
-cmake_minimum_required(VERSION 3.14.0)
+cmake_minimum_required(VERSION 3.13.0)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../include)
 aux_source_directory(. PROBLEMS)
 
