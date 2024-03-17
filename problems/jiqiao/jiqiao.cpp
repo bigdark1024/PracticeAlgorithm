@@ -46,6 +46,30 @@ TEST(jiqiao, t5) {
 //    };
 //}
 
+TEST(jiqiao, t6) {
+    unsigned short a = 9;    // 补码 00001001
+    int b = ~a;
+    cout  << b << endl; // prints -10
+}
+
+TEST(jiqiao, t7) {
+    int8_t x = 0b00001011;
+    x = x << 6;
+    if (x < 0) {
+        cout << "Negtive.";
+    }
+}
+
+TEST(jiqiao, t8) {
+    unsigned int num = 44; // 二进制表示为 0010 1100
+    int shiftAmount = 2;   // 要右移的位数
+
+    unsigned int result = num >> shiftAmount;  //  result = 0000 1011
+
+    std::cout << "原始数值（二进制）: " << std::bitset<8>(num) << std::endl;
+    std::cout << "右移后的数值（二进制）: " << std::bitset<8>(result) << std::endl;
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
