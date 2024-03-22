@@ -1,4 +1,4 @@
-# leetcode_learner
+# PracticeAlgorithm
 > Leetcode CMake template. For easy building, testing, and debugging with CMake, GTest, and VSCode.
 
 ## Requirements
