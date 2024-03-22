@@ -1,5 +1,7 @@
 #include "headers.h"
 
+#include <bitset>
+
 TEST(jiqiao, t1) {
     vector<int> nums {1, 2, 34, 44, 99};
     int k1 = lower_bound(nums.begin(), nums.end(), 56) - nums.begin();
