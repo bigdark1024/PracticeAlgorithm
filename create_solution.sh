@@ -1,6 +1,6 @@
 if [ -z "$1" ]
 then
-	echo 'ERROR: need paramter `./new.sh <problem name>`'
+	echo 'ERROR: need paramter `./create_solution.sh <problem name>`'
 	exit 1 
 fi
 DIRNAME=$(dirname $0)
