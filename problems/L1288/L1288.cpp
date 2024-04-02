@@ -10,9 +10,9 @@ public:
     int removeCoveredIntervals(vector<vector<int>>& intervals) {
         int res = 0;
         std::sort(intervals.begin(), intervals.end(), [](vector<int> &a, vector<int> &b) {
-            
+            return a[0] < b[0];
         });
-        return 0;
+        return res;
     }
 };
 

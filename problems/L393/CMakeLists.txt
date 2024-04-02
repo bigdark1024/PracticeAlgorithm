@@ -1,12 +1,12 @@
 project(TTT)
-cmake_minimum_required(VERSION 3.14.0)
+cmake_minimum_required(VERSION 3.13.4)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../include)
 aux_source_directory(. PROBLEMS)
 
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
-set(CXX_STANDARD 11)
+set(CXX_STANDARD 17)
 
 foreach(PROBLEM ${PROBLEMS})
     get_filename_component(PROBLEM_NAME ${PROBLEM} NAME_WE)
