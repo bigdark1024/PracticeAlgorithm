@@ -1,5 +1,7 @@
 #include "headers.h"
 
+#include <gtest/gtest.h>
+
 class Solution {
 public:
 
