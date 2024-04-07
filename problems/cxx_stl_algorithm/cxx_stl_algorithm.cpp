@@ -165,8 +165,41 @@ TEST(cxx_stl_algorithm, case6) {
 /**
  *  二分查找
  * */
-TEST(cxx_stl_algorithm, case7) {
+TEST(cxx_stl_algorithm, case7_lower_upper_bound) {
+    // 必须有序才能用，所谓“有序”，并不是要求[First, last]区域内数据严格按照某个排序规则进行升序或降序排序，
+    // 只要满足使element < val(或者comp(val, element)成立的元素都位于不成立元素的前面。
+    // lower_bound(起始位置， 末尾位置， target): 查找第一个大于或等于target目标值的地址；如果区间内所有元素都小于target，返回last地址，且last地址是越界的。
+    // upper_bound(起始位置， 末尾位置， target): 查找第一个大于target目标值的地址，如果target大于区间内所有元素，则返回last地址， 且last地址是越界的。
+    // binary_search(起始位置， 末尾位置， target): 查找target是否存在于数组或者vector中，找到返回true, 否则返回false
+    int a[] = {1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 5, 6, 7, 8, 9, 9, 10};
+    std::cout << std::lower_bound(a, a + 10, 0) - a << std::endl;
+    std::cout << std::lower_bound(std::begin(a), std::end(a), 1) - a << std::endl;
+    std::cout << std::lower_bound(std::begin(a), std::end(a), 3) - a << std::endl;
+    std::cout << std::lower_bound(std::begin(a), std::end(a), 4) - a << std::endl;
+    std::cout << std::lower_bound(std::begin(a), std::end(a), 5) - a << std::endl;
 
+    std::cout << std::upper_bound(std::begin(a), std::end(a), 0) - a << std::endl;
+    std::cout << std::upper_bound(std::begin(a), std::end(a), 1) - a << std::endl;
+    std::cout << std::upper_bound(std::begin(a), std::end(a), 3) - a << std::endl;
+    std::cout << std::upper_bound(std::begin(a), std::end(a), 4) - a << std::endl;
+    std::cout << std::upper_bound(std::begin(a), std::end(a), 5) - a << std::endl;
+
+    auto flag = std::binary_search(std::begin(a), std::end(a), 2);
+    std::cout << "bsearch ret = " << flag << std::endl;
+}
+
+/**
+ *  find查找
+ * */
+TEST(cxx_stl_algorithm, case8_find) {
+    std::vector<int> vec {11 , 25, 30, 44, 50};
+    std::vector<int>::iterator it;
+    it = find(vec.begin(), vec.end(), 30);
+    if (it != vec.end()) {
+        std::cout << "查找成功" << std::endl;
+    } else {
+        std::cout << "查找失败" << std::endl;
+    }
 }
 
 int main(int argc, char **argv) {
