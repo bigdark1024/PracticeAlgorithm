@@ -30,8 +30,8 @@ public:
 };
 
 int main(int argc, char **argv) {
-    TreeNode leftNode = TreeNode(2);
-    TreeNode rightNode = TreeNode(3);
+    auto leftNode = TreeNode(2);
+    auto rightNode = TreeNode(3);
 
     TreeNode *root = {};
     root = (TreeNode*) malloc(sizeof(struct TreeNode));
