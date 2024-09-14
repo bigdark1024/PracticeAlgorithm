@@ -55,11 +55,15 @@ MACRO(SUBDIRLIST result curdir)
     SET(${result} ${dirlist})
 ENDMACRO()
 
-SUBDIRLIST(problems ${CMAKE_CURRENT_SOURCE_DIR}/problems)
 
 add_subdirectory(include)
+
+SUBDIRLIST(problems ${CMAKE_CURRENT_SOURCE_DIR}/problems)
 foreach (problem ${problems})
     add_subdirectory(problems/${problem})
 endforeach ()
 
-add_subdirectory(advance_c)
+SUBDIRLIST(cc_problems ${CMAKE_CURRENT_SOURCE_DIR}/advance_c)
+foreach (problem ${cc_problems})
+    add_subdirectory(advance_c/${problem})
+endforeach ()

@@ -202,6 +202,99 @@ TEST(cxx_stl_algorithm, case8_find) {
     }
 }
 
+/**
+ *  int数组通过std::sort排序
+ * */
+TEST(cxx_stl_algorithm, case9_array_sort) {
+    int data[] = {5, 4, 3, 6};
+    int len = sizeof(data) / sizeof(data[0]);
+    std::sort(data, data + len);
+    for (auto x : data) {
+        std::cout << x << " ";
+    }
+}
+
+/**
+ *  vector<int>通过sort排序
+ * */
+TEST(cxx_stl_algorithm, case10_vector_sort) {
+    vector<int> vec1 {1, 3, 5, 7, 2};
+    std::sort(vec1.begin(), vec1.end());
+    for (auto x : vec1) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+
+    std::vector<int> vec2 = {1, 3, 5, 7, 2};
+    std::sort(vec2.begin(), vec2.end(), [=](int x, int y)->bool {
+        return x > y;
+    });
+    for (auto x : vec2) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+}
+
+/**
+ *  string通过sort排序
+ * */
+TEST(cxx_stl_algorithm, case11_string_sort) {
+    string str1 = "afagjkagjkdg";
+    string str2 = "ABCcba321456";
+    // 默认升序
+    std::sort(str1.begin(), str1.end());
+
+    // lambda表达式自定义比较规则
+    // 返回true不交换， false交换
+    std::sort(str2.begin(), str2.end(), [](int x, int y)->bool {
+       return x > y;
+    });
+    std::cout << "str1 :" << str1 << std::endl;
+    std::cout << "str2 :" << str2 << std::endl;
+}
+
+struct Data {
+    int a;
+    int b;
+    int c;
+    Data() {
+
+    }
+    Data(int x, int y, int z) : a(x), b(y), c(z) {
+
+    }
+};
+
+TEST(cxx_stl_algorithm, case12_struct_sort) {
+    int data_size = 8;
+    Data arr[data_size];
+    arr[0] = Data(1, 0, 3);
+    arr[1] = Data(3, 2, 1);
+    arr[2] = Data(4, 4, 0);
+    arr[3] = Data(5, 2, 2);
+    arr[4] = Data(2, 6, 5);
+    arr[5] = Data(2, 8, 5);
+    arr[6] = Data(1, 0, 5);
+    arr[7] = Data(3, 2, 5);
+
+    std::sort(arr, arr + data_size, [](Data d1, Data d2) ->bool {
+        if (d1.a == d2.a) {
+            if (d1.b == d2.b) {
+                return d1.c > d2.c; // 根据c大小降序
+            }
+            return d1.b > d2.b; // 根据b大小降序
+        }
+        return d1.a < d2.a; // 根据a大小升序
+    });
+
+    for (auto x : arr) {
+        cout << "  " << x.a << " " << x.b << " " << x.c << std::endl;
+    }
+}
+
+
+
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
