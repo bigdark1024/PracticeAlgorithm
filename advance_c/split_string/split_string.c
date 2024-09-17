@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 int main(int argc, char **argv) {
     char str[] = "A bird came down the walk";
     const char *delim = " ";
