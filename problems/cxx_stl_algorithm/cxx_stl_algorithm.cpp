@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>  // stringstream
 #include <cstdlib> // stoi, atoi
+#include <queue>
 
 #include <gtest/gtest.h>
 
@@ -292,7 +293,10 @@ TEST(cxx_stl_algorithm, case12_struct_sort) {
     }
 }
 
-
+TEST(cxx_stl_algorithm, case13_priority_queue) {
+    priority_queue<int> pq;
+    std::cout << typeid(pq).name() << std::endl;
+}
 
 
 int main(int argc, char **argv) {
