@@ -42,6 +42,26 @@ TEST(jiqiao_str, t5)
     std::cout << "reverse：" << s << std::endl;
 }
 
+/* 字符串截取子串 */
+TEST(jiqiao_str, t6)
+{
+    std::string s = "134567";
+    std::string str1 = s.substr(0, 1);
+    std::cout << str1 << std::endl;
+
+    std::string str2 = s.substr(0, 2);
+    std::cout << str2 << std::endl;
+
+    std::string str3 = s.substr(0, s.length());
+    std::cout << str3 << std::endl;
+
+    int val3 = stoi(str3, nullptr, 10);
+    std::cout << val3 << std::endl;
+
+    int val3_2 = atoi(str3.c_str());
+    std::cout << val3_2 << std::endl;
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
