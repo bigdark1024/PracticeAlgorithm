@@ -22,8 +22,11 @@ TEST(jiqiao_str, t2)
 TEST(jiqiao_str, t3)
 {
     std::string s = "CDEFGAB";
-    std::cout << "find：" << s.find("AB") << std::endl;
+    std::cout << "find：" << s.find("AB") << std::endl;  // find：5
 
+    if (s.find("ZZ") == s.npos) {
+        std::cout << "not found" << std::endl;  // not found
+    }
 }
 
 /* 字符串替换 */
